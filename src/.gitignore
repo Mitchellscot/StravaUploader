@@ -9,7 +9,7 @@ x86/
 [Ll]ogs/
 
 # Visual Studio files
-.vs/**
+.vs/
 .vs/CopilotSnapshots/**
 .vs/ProjectEvaluation/**
 .vs/StravaUploader/**
