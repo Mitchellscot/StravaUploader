@@ -1,0 +1,788 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\MTB-3.12.19.tcx" />
+    <None Remove="Resources\Ride-8.25.19.fit" />
+    <None Remove="Resources\Ride_2019-01-03_16-07-44.fit" />
+    <None Remove="Resources\Ride_2019-01-10_16-03-24.fit" />
+    <None Remove="Resources\Ride_2019-01-31_15-44-11.fit" />
+    <None Remove="Resources\Ride_2019-03-21_17-02-26.fit" />
+    <None Remove="Resources\Ride_2019-03-27_17-29-52.fit" />
+    <None Remove="Resources\Ride_2019-04-08_16-58-36.fit" />
+    <None Remove="Resources\Ride_2019-04-09_06-56-36.fit" />
+    <None Remove="Resources\Ride_2019-04-19_17-09-30.fit" />
+    <None Remove="Resources\Ride_2019-04-22_17-41-20.fit" />
+    <None Remove="Resources\Ride_2019-04-23_08-00-17.fit" />
+    <None Remove="Resources\Ride_2019-05-06_17-15-35.fit" />
+    <None Remove="Resources\Ride_2019-05-10_17-31-16.fit" />
+    <None Remove="Resources\Ride_2019-05-27_16-48-34.fit" />
+    <None Remove="Resources\Ride_2019-05-28_19-57-57.fit" />
+    <None Remove="Resources\Ride_2019-05-29_20-20-30.fit" />
+    <None Remove="Resources\Ride_2019-05-31_19-28-05.fit" />
+    <None Remove="Resources\Ride_2019-06-01_17-35-24.fit" />
+    <None Remove="Resources\Ride_2019-06-02_19-16-21.fit" />
+    <None Remove="Resources\Ride_2019-06-10_19-35-51.fit" />
+    <None Remove="Resources\Ride_2019-06-12_20-53-45.fit" />
+    <None Remove="Resources\Ride_2019-06-13_20-33-32.fit" />
+    <None Remove="Resources\Ride_2019-06-17_11-03-02.fit" />
+    <None Remove="Resources\Ride_2019-06-17_13-42-08.fit" />
+    <None Remove="Resources\Ride_2019-06-17_18-07-13.fit" />
+    <None Remove="Resources\Ride_2019-06-21_19-13-40.fit" />
+    <None Remove="Resources\Ride_2019-06-28_17-47-19.fit" />
+    <None Remove="Resources\Ride_2019-07-02_20-01-59.fit" />
+    <None Remove="Resources\Ride_2019-07-12_19-41-59.fit" />
+    <None Remove="Resources\Ride_2019-07-13_19-24-49.fit" />
+    <None Remove="Resources\Ride_2019-07-15_20-33-55.fit" />
+    <None Remove="Resources\Ride_2019-07-16_19-40-41.fit" />
+    <None Remove="Resources\Ride_2019-07-17_20-13-12.fit" />
+    <None Remove="Resources\Ride_2019-07-20_19-06-31.fit" />
+    <None Remove="Resources\Ride_2019-07-24_19-53-39.fit" />
+    <None Remove="Resources\Ride_2019-07-26_19-07-28.fit" />
+    <None Remove="Resources\Ride_2019-07-29_15-29-10.fit" />
+    <None Remove="Resources\Ride_2019-07-30_17-59-36.fit" />
+    <None Remove="Resources\Ride_2019-08-03_17-54-25.fit" />
+    <None Remove="Resources\Ride_2019-08-04_16-45-28.fit" />
+    <None Remove="Resources\Ride_2019-08-08_17-58-08.fit" />
+    <None Remove="Resources\Ride_2019-08-09_19-09-19.fit" />
+    <None Remove="Resources\Ride_2019-08-11_10-17-04.fit" />
+    <None Remove="Resources\Ride_2019-08-14_18-23-52.fit" />
+    <None Remove="Resources\Ride_2019-08-14_22-01-25.fit" />
+    <None Remove="Resources\Ride_2019-08-16_17-29-58.fit" />
+    <None Remove="Resources\Ride_2019-08-17_19-05-55.fit" />
+    <None Remove="Resources\Ride_2019-08-21_17-58-55.fit" />
+    <None Remove="Resources\Ride_2019-08-23_18-05-59.fit" />
+    <None Remove="Resources\Ride_2019-08-23_19-09-54.fit" />
+    <None Remove="Resources\Ride_2019-08-25_14-25-52.fit" />
+    <None Remove="Resources\Ride_2019-08-30_06-28-03.fit" />
+    <None Remove="Resources\Ride_2019-08-31_17-19-52.fit" />
+    <None Remove="Resources\Ride_2019-09-05_15-55-14.fit" />
+    <None Remove="Resources\Ride_2019-09-07_17-37-30.fit" />
+    <None Remove="Resources\Ride_2019-09-13_19-01-59.fit" />
+    <None Remove="Resources\Ride_2019-09-16_16-44-17.fit" />
+    <None Remove="Resources\Ride_2019-09-17_16-22-09.fit" />
+    <None Remove="Resources\Ride_2019-09-20_18-22-24.fit" />
+    <None Remove="Resources\Ride_2019-09-23_15-51-01.fit" />
+    <None Remove="Resources\Ride_2019-09-27_17-45-12.fit" />
+    <None Remove="Resources\Ride_2019-09-30_17-31-22.fit" />
+    <None Remove="Resources\Ride_2019-10-06_17-45-01.fit" />
+    <None Remove="Resources\Ride_2019-10-07_15-01-13.fit" />
+    <None Remove="Resources\Ride_2019-10-18_17-58-01.fit" />
+    <None Remove="Resources\Ride_2019-10-25_16-58-09.fit" />
+    <None Remove="Resources\Ride_2019-10-26_17-00-05.fit" />
+    <None Remove="Resources\Run_2019-01-01_08-56-21.fit" />
+    <None Remove="Resources\Run_2019-01-03_10-18-56.fit" />
+    <None Remove="Resources\Run_2019-01-05_12-34-44.fit" />
+    <None Remove="Resources\Run_2019-01-07_16-50-53.fit" />
+    <None Remove="Resources\Run_2019-01-08_16-22-03.fit" />
+    <None Remove="Resources\Run_2019-01-09_17-19-12.fit" />
+    <None Remove="Resources\Run_2019-01-11_15-50-26.fit" />
+    <None Remove="Resources\Run_2019-01-12_16-01-53.fit" />
+    <None Remove="Resources\Run_2019-01-14_16-16-39.fit" />
+    <None Remove="Resources\Run_2019-01-15_16-28-19.fit" />
+    <None Remove="Resources\Run_2019-01-16_16-32-45.fit" />
+    <None Remove="Resources\Run_2019-01-19_13-58-46.fit" />
+    <None Remove="Resources\Run_2019-01-21_16-24-05.fit" />
+    <None Remove="Resources\Run_2019-01-23_08-19-43.fit" />
+    <None Remove="Resources\Run_2019-01-25_08-08-51.fit" />
+    <None Remove="Resources\Run_2019-01-26_15-09-42.fit" />
+    <None Remove="Resources\Run_2019-01-27_16-38-59.fit" />
+    <None Remove="Resources\Run_2019-01-28_17-23-44.fit" />
+    <None Remove="Resources\Run_2019-01-29_16-21-01.fit" />
+    <None Remove="Resources\Run_2019-01-30_13-14-06.fit" />
+    <None Remove="Resources\Run_2019-02-01_09-17-46.fit" />
+    <None Remove="Resources\Run_2019-02-02_14-36-21.fit" />
+    <None Remove="Resources\Run_2019-02-05_07-57-43.fit" />
+    <None Remove="Resources\Run_2019-02-07_13-08-21.fit" />
+    <None Remove="Resources\Run_2019-02-10_11-12-26.fit" />
+    <None Remove="Resources\Run_2019-02-10_11-59-30.fit" />
+    <None Remove="Resources\Run_2019-02-16_14-18-37.fit" />
+    <None Remove="Resources\Run_2019-02-28_17-44-21.fit" />
+    <None Remove="Resources\Run_2019-03-06_15-20-30.fit" />
+    <None Remove="Resources\Run_2019-03-08_15-12-20.fit" />
+    <None Remove="Resources\Run_2019-03-11_17-21-40.fit" />
+    <None Remove="Resources\Run_2019-03-18_17-20-14.fit" />
+    <None Remove="Resources\Run_2019-03-19_06-24-01.fit" />
+    <None Remove="Resources\Run_2019-03-21_07-41-51.fit" />
+    <None Remove="Resources\Run_2019-03-23_14-02-29.fit" />
+    <None Remove="Resources\Run_2019-03-25_13-14-25.fit" />
+    <None Remove="Resources\Run_2019-03-27_14-41-09.fit" />
+    <None Remove="Resources\Run_2019-03-30_14-35-42.fit" />
+    <None Remove="Resources\Run_2019-04-11_09-30-11.fit" />
+    <None Remove="Resources\Run_2019-04-12_08-02-58.fit" />
+    <None Remove="Resources\Run_2019-04-14_08-27-29.fit" />
+    <None Remove="Resources\Run_2019-04-20_16-57-02.fit" />
+    <None Remove="Resources\Run_2019-04-22_06-38-09.fit" />
+    <None Remove="Resources\Run_2019-04-24_16-47-04.fit" />
+    <None Remove="Resources\Run_2019-04-27_08-03-10.fit" />
+    <None Remove="Resources\Run_2019-05-01_17-27-43.fit" />
+    <None Remove="Resources\Run_2019-05-08_17-37-19.fit" />
+    <None Remove="Resources\Run_2019-05-11_06-30-39.fit" />
+    <None Remove="Resources\Run_2019-05-12_14-59-16.fit" />
+    <None Remove="Resources\Run_2019-05-15_12-08-29.fit" />
+    <None Remove="Resources\Run_2019-05-19_17-29-53.fit" />
+    <None Remove="Resources\Run_2019-05-21_06-17-32.fit" />
+    <None Remove="Resources\Run_2019-05-25_06-33-24.fit" />
+    <None Remove="Resources\Run_2019-05-26_14-03-15.fit" />
+    <None Remove="Resources\Run_2019-05-28_06-47-29.fit" />
+    <None Remove="Resources\Run_2019-05-30_17-39-50.fit" />
+    <None Remove="Resources\Run_2019-06-02_07-31-04.fit" />
+    <None Remove="Resources\Run_2019-06-05_19-20-16.fit" />
+    <None Remove="Resources\Run_2019-06-07_14-53-47.fit" />
+    <None Remove="Resources\Run_2019-06-16_06-27-29.fit" />
+    <None Remove="Resources\Run_2019-06-21_06-29-53.fit" />
+    <None Remove="Resources\Run_2019-06-23_15-45-02.fit" />
+    <None Remove="Resources\Run_2019-06-25_06-33-55.fit" />
+    <None Remove="Resources\Run_2019-06-27_17-40-33.fit" />
+    <None Remove="Resources\Run_2019-06-29_06-39-02.fit" />
+    <None Remove="Resources\Run_2019-06-30_12-01-49.fit" />
+    <None Remove="Resources\Run_2019-07-04_17-36-32.fit" />
+    <None Remove="Resources\Run_2019-07-05_21-05-32.fit" />
+    <None Remove="Resources\Run_2019-07-06_19-46-40.fit" />
+    <None Remove="Resources\Run_2019-07-07_14-27-45.fit" />
+    <None Remove="Resources\Run_2019-07-09_18-03-01.fit" />
+    <None Remove="Resources\Run_2019-07-11_17-28-39.fit" />
+    <None Remove="Resources\Run_2019-07-13_07-07-13.fit" />
+    <None Remove="Resources\Run_2019-07-14_08-34-27.fit" />
+    <None Remove="Resources\Run_2019-07-14_15-05-32.fit" />
+    <None Remove="Resources\Run_2019-07-14_16-51-54.fit" />
+    <None Remove="Resources\Run_2019-07-18_19-40-34.fit" />
+    <None Remove="Resources\Run_2019-07-20_06-00-25.fit" />
+    <None Remove="Resources\Run_2019-07-22_11-00-54.fit" />
+    <None Remove="Resources\Run_2019-07-25_20-24-54.fit" />
+    <None Remove="Resources\Run_2019-07-28_08-37-18.fit" />
+    <None Remove="Resources\Run_2019-07-29_07-20-21.fit" />
+    <None Remove="Resources\Run_2019-08-04_07-14-16.fit" />
+    <None Remove="Resources\Run_2019-08-06_17-35-54.fit" />
+    <None Remove="Resources\Run_2019-08-07_18-37-11.fit" />
+    <None Remove="Resources\Run_2019-08-10_06-30-17.fit" />
+    <None Remove="Resources\Run_2019-08-11_06-20-59.fit" />
+    <None Remove="Resources\Run_2019-08-13_06-32-32.fit" />
+    <None Remove="Resources\Run_2019-08-15_18-16-33.fit" />
+    <None Remove="Resources\Run_2019-08-17_06-27-50.fit" />
+    <None Remove="Resources\Run_2019-08-18_16-54-06.fit" />
+    <None Remove="Resources\Run_2019-08-19_06-44-54.fit" />
+    <None Remove="Resources\Run_2019-08-21_06-21-27.fit" />
+    <None Remove="Resources\Run_2019-08-22_17-27-02.fit" />
+    <None Remove="Resources\Run_2019-08-27_06-17-33.fit" />
+    <None Remove="Resources\Run_2019-08-28_17-40-00.fit" />
+    <None Remove="Resources\Run_2019-08-29_06-31-59.fit" />
+    <None Remove="Resources\Run_2019-08-31_06-01-20.fit" />
+    <None Remove="Resources\Run_2019-09-01_06-19-40.fit" />
+    <None Remove="Resources\Run_2019-09-02_06-15-05.fit" />
+    <None Remove="Resources\Run_2019-09-04_07-48-45.fit" />
+    <None Remove="Resources\Run_2019-09-06_08-25-49.fit" />
+    <None Remove="Resources\Run_2019-09-08_15-06-12.fit" />
+    <None Remove="Resources\Run_2019-09-10_17-51-34.fit" />
+    <None Remove="Resources\Run_2019-09-11_17-29-45.fit" />
+    <None Remove="Resources\Run_2019-09-11_17-48-59.fit" />
+    <None Remove="Resources\Run_2019-09-12_14-10-53.fit" />
+    <None Remove="Resources\Run_2019-09-14_06-29-35.fit" />
+    <None Remove="Resources\Run_2019-09-15_14-15-11.fit" />
+    <None Remove="Resources\Run_2019-09-18_16-44-02.fit" />
+    <None Remove="Resources\Run_2019-09-19_17-04-29.fit" />
+    <None Remove="Resources\Run_2019-09-22_06-44-04.fit" />
+    <None Remove="Resources\Run_2019-09-23_07-47-04.fit" />
+    <None Remove="Resources\Run_2019-09-25_17-27-05.fit" />
+    <None Remove="Resources\Run_2019-09-26_17-21-56.fit" />
+    <None Remove="Resources\Run_2019-09-28_17-48-49.fit" />
+    <None Remove="Resources\Run_2019-09-29_16-16-45.fit" />
+    <None Remove="Resources\Run_2019-10-01_15-54-21.fit" />
+    <None Remove="Resources\Run_2019-10-04_06-20-14.fit" />
+    <None Remove="Resources\Run_2019-10-05_06-36-18.fit" />
+    <None Remove="Resources\Run_2019-10-08_07-19-24.fit" />
+    <None Remove="Resources\Run_2019-10-10_18-06-12.fit" />
+    <None Remove="Resources\Run_2019-10-19_08-09-09.fit" />
+    <None Remove="Resources\Run_2019-10-26_06-30-24.fit" />
+    <None Remove="Resources\Run_2019-10-29_16-43-43.fit" />
+    <None Remove="Resources\Run_2019-10-30_16-48-10.fit" />
+    <None Remove="Resources\Run_2019-10-31_16-15-11.fit" />
+    <None Remove="Resources\Run_2019-11-01_16-10-43.fit" />
+    <None Remove="Resources\Run_2019-11-04_15-17-24.fit" />
+    <None Remove="Resources\Run_2019-11-05_17-31-02.fit" />
+    <None Remove="Resources\Run_2019-11-06_17-17-29.fit" />
+    <None Remove="Resources\Run_2019-11-07_17-28-38.fit" />
+    <None Remove="Resources\Run_2019-11-08_17-12-44.fit" />
+    <None Remove="Resources\Run_2019-11-09_06-50-18.fit" />
+    <None Remove="Resources\Run_2019-11-10_14-53-20.fit" />
+    <None Remove="Resources\Run_2019-11-11_16-18-46.fit" />
+    <None Remove="Resources\Run_2019-11-12_07-43-17.fit" />
+    <None Remove="Resources\Run_2019-11-12_18-27-22.fit" />
+    <None Remove="Resources\Run_2019-11-13_16-30-17.fit" />
+    <None Remove="Resources\Run_2019-11-14_13-30-48.fit" />
+    <None Remove="Resources\Run_2019-11-15_17-33-29.fit" />
+    <None Remove="Resources\Run_2019-11-16_13-30-04.fit" />
+    <None Remove="Resources\Run_2019-11-18_16-59-45.fit" />
+    <None Remove="Resources\Run_2019-11-19_16-30-07.fit" />
+    <None Remove="Resources\Run_2019-11-20_16-16-27.fit" />
+    <None Remove="Resources\Run_2019-11-21_11-18-34.fit" />
+    <None Remove="Resources\Run_2019-11-22_16-40-21.fit" />
+    <None Remove="Resources\Run_2019-11-23_16-20-46.fit" />
+    <None Remove="Resources\Run_2019-11-25_16-42-04.fit" />
+    <None Remove="Resources\Run_2019-11-26_07-16-56.fit" />
+    <None Remove="Resources\Run_2019-11-27_16-30-13.fit" />
+    <None Remove="Resources\Run_2019-11-28_06-00-04.fit" />
+    <None Remove="Resources\Run_2019-11-30_16-15-51.fit" />
+    <None Remove="Resources\Run_2019-12-02_17-51-27.fit" />
+    <None Remove="Resources\Run_2019-12-04_17-07-11.fit" />
+    <None Remove="Resources\Run_2019-12-05_17-19-36.fit" />
+    <None Remove="Resources\Run_2019-12-06_17-15-55.fit" />
+    <None Remove="Resources\Run_2019-12-07_14-29-10.fit" />
+    <None Remove="Resources\Run_2019-12-09_16-44-06.fit" />
+    <None Remove="Resources\Run_2019-12-10_17-13-51.fit" />
+    <None Remove="Resources\Run_2019-12-11_16-37-05.fit" />
+    <None Remove="Resources\Run_2019-12-12_16-23-00.fit" />
+    <None Remove="Resources\Run_2019-12-13_16-45-24.fit" />
+    <None Remove="Resources\Run_2019-12-17_16-51-04.fit" />
+    <None Remove="Resources\Run_2019-12-18_16-40-01.fit" />
+    <None Remove="Resources\Run_2019-12-19_15-56-22.fit" />
+    <None Remove="Resources\Run_2019-12-20_17-38-21.fit" />
+    <None Remove="Resources\Run_2019-12-21_16-48-09.fit" />
+    <None Remove="Resources\Run_2019-12-26_17-04-45.fit" />
+    <None Remove="Resources\Run_2019-12-27_17-00-21.fit" />
+    <None Remove="Resources\Run_2019-12-28_16-34-07.fit" />
+    <None Remove="Resources\Run_2019-12-30_17-06-26.fit" />
+    <None Remove="Resources\Run_2019-12-31_17-01-41.fit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Run_2019-01-01_08-56-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-03_10-18-56.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-05_12-34-44.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-07_16-50-53.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-08_16-22-03.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-09_17-19-12.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-11_15-50-26.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-12_16-01-53.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-14_16-16-39.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-15_16-28-19.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-16_16-32-45.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-19_13-58-46.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-21_16-24-05.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-23_08-19-43.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-25_08-08-51.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-26_15-09-42.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-27_16-38-59.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-28_17-23-44.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-29_16-21-01.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-01-30_13-14-06.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-02-01_09-17-46.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-02-02_14-36-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-02-05_07-57-43.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-02-07_13-08-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-02-10_11-12-26.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-02-10_11-59-30.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-02-16_14-18-37.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-02-28_17-44-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-06_15-20-30.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-08_15-12-20.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-11_17-21-40.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-18_17-20-14.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-19_06-24-01.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-21_07-41-51.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-23_14-02-29.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-25_13-14-25.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-27_14-41-09.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-03-30_14-35-42.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-04-11_09-30-11.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-04-12_08-02-58.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-04-14_08-27-29.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-04-20_16-57-02.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-04-22_06-38-09.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-04-24_16-47-04.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-04-27_08-03-10.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-01_17-27-43.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-08_17-37-19.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-11_06-30-39.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-12_14-59-16.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-15_12-08-29.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-19_17-29-53.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-21_06-17-32.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-25_06-33-24.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-26_14-03-15.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-28_06-47-29.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-05-30_17-39-50.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-02_07-31-04.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-05_19-20-16.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-07_14-53-47.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-16_06-27-29.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-21_06-29-53.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-23_15-45-02.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-25_06-33-55.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-27_17-40-33.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-29_06-39-02.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-06-30_12-01-49.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-04_17-36-32.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-05_21-05-32.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-06_19-46-40.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-07_14-27-45.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-09_18-03-01.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-11_17-28-39.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-13_07-07-13.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-14_08-34-27.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-14_15-05-32.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-14_16-51-54.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-18_19-40-34.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-20_06-00-25.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-22_11-00-54.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-25_20-24-54.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-28_08-37-18.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-07-29_07-20-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-04_07-14-16.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-06_17-35-54.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-07_18-37-11.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-10_06-30-17.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-11_06-20-59.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-13_06-32-32.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-15_18-16-33.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-17_06-27-50.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-18_16-54-06.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-19_06-44-54.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-21_06-21-27.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-22_17-27-02.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-27_06-17-33.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-28_17-40-00.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-29_06-31-59.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-08-31_06-01-20.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-01_06-19-40.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-02_06-15-05.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-04_07-48-45.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-06_08-25-49.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-08_15-06-12.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-10_17-51-34.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-11_17-29-45.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-11_17-48-59.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-12_14-10-53.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-14_06-29-35.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-15_14-15-11.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-18_16-44-02.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-19_17-04-29.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-22_06-44-04.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-23_07-47-04.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-25_17-27-05.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-26_17-21-56.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-28_17-48-49.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-09-29_16-16-45.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-01_15-54-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-04_06-20-14.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-05_06-36-18.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-08_07-19-24.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-10_18-06-12.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-19_08-09-09.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-26_06-30-24.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-29_16-43-43.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-30_16-48-10.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-10-31_16-15-11.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-01_16-10-43.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-04_15-17-24.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-05_17-31-02.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-06_17-17-29.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-07_17-28-38.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-08_17-12-44.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-09_06-50-18.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-10_14-53-20.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-11_16-18-46.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-12_07-43-17.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-12_18-27-22.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-13_16-30-17.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-14_13-30-48.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-15_17-33-29.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-16_13-30-04.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-18_16-59-45.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-19_16-30-07.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-20_16-16-27.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-21_11-18-34.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-22_16-40-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-23_16-20-46.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-25_16-42-04.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-26_07-16-56.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-27_16-30-13.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-28_06-00-04.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-11-30_16-15-51.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-02_17-51-27.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-04_17-07-11.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-05_17-19-36.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-06_17-15-55.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-07_14-29-10.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-09_16-44-06.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-10_17-13-51.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-11_16-37-05.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-12_16-23-00.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-13_16-45-24.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-17_16-51-04.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-18_16-40-01.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-19_15-56-22.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-20_17-38-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-21_16-48-09.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-26_17-04-45.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-27_17-00-21.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-28_16-34-07.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-30_17-06-26.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Run_2019-12-31_17-01-41.fit">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="com.strava.v3.api" Version="5.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="strava_config.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('strava_config.json')" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="docs\" />
+  </ItemGroup>
+
+</Project>

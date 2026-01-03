@@ -1,0 +1,51 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio files
+.vs/**
+.vs/CopilotSnapshots/**
+.vs/ProjectEvaluation/**
+.vs/StravaUploader/**
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Sensitive configuration files
+strava_config.json
+uploaded_files.json
+
+# NuGet packages
+*.nupkg
+**/packages/*
+*.nuget.props
+*.nuget.targets
+
+# Test files
+*.trx
+*.coverage
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Application specific
+Resources/*.fit
