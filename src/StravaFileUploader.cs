@@ -66,6 +66,7 @@ public class StravaFileUploader
         int successCount = 0;
         int failureCount = 0;
         int skippedCount = 0;
+        int emptyFileCount = 0;
 
         for (int i = 0; i < files.Count; i++)
         {
@@ -84,7 +85,7 @@ public class StravaFileUploader
                 continue;
             }
 
-            bool success = await UploadFileWithRetryAsync(file);
+            var (success, isEmpty) = await UploadFileWithRetryAsync(file);
 
             if (success)
             {
@@ -92,6 +93,13 @@ public class StravaFileUploader
                 _uploadTracker.MarkAsUploaded(fileName);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("  [SUCCESS] Successfully uploaded");
+                Console.ResetColor();
+            }
+            else if (isEmpty)
+            {
+                emptyFileCount++;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("  [EMPTY FILE] Skipped - will not attempt again");
                 Console.ResetColor();
             }
             else
@@ -110,7 +118,7 @@ public class StravaFileUploader
             }
         }
 
-        PrintSummary(successCount, failureCount, skippedCount);
+        PrintSummary(successCount, failureCount, skippedCount, emptyFileCount);
     }
 
     private async Task<bool> ValidateTokenAsync()
@@ -213,8 +221,10 @@ public class StravaFileUploader
         return files;
     }
 
-    private async Task<bool> UploadFileWithRetryAsync(string filePath)
+    private async Task<(bool success, bool isEmpty)> UploadFileWithRetryAsync(string filePath)
     {
+        string fileName = Path.GetFileName(filePath);
+        
         for (int attempt = 1; attempt <= MaxRetries; attempt++)
         {
             try
@@ -226,25 +236,48 @@ public class StravaFileUploader
                 }
 
                 bool success = await UploadSingleFileAsync(filePath);
-                return success;
+                return (success, false);
             }
             catch (Exception ex)
             {
+                // Check for empty file error - these should not be retried
+                if (ex.Message.Contains("file is empty", StringComparison.OrdinalIgnoreCase) ||
+                    ex.Message.Contains("Uploading-Empty-Files", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"  File rejected by Strava: {ex.Message}");
+                    Console.WriteLine($"  Skipping this file (will not retry)");
+                    Console.WriteLine($"  Marking as uploaded to prevent future attempts");
+                    Console.ResetColor();
+                    
+                    // Mark as uploaded so it won't be attempted again
+                    _uploadTracker.MarkAsUploaded(fileName);
+                    return (false, true);
+                }
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"  Attempt {attempt} failed: {ex.Message}");
                 Console.ResetColor();
+
+                // Check if rate limit has been exceeded
+                if (_rateLimitMonitor.IsRateLimitExceeded())
+                {
+                    Console.WriteLine();
+                    _rateLimitMonitor.DisplayRateLimitExceededMessage();
+                    Environment.Exit(1);
+                }
 
                 if (attempt == MaxRetries)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"  All retry attempts exhausted.");
                     Console.ResetColor();
-                    return false;
+                    return (false, false);
                 }
             }
         }
 
-        return false;
+        return (false, false);
     }
 
     private async Task<bool> UploadSingleFileAsync(string filePath)
@@ -285,6 +318,33 @@ public class StravaFileUploader
         Console.WriteLine($"  Upload ID: {uploadStatus.Id} - Status: {uploadStatus.Status ?? "Unknown"}");
         Console.WriteLine($"  Current Status: {uploadStatus.CurrentStatus}");
 
+        // Check if we got an ID of 0 with Ready status - this often indicates rate limiting
+        if (uploadStatus.Id == 0 && uploadStatus.CurrentStatus == CurrentUploadStatus.Ready && string.IsNullOrEmpty(uploadStatus.Status))
+        {
+            // Try to get current rate limit status
+            using var httpClient = new System.Net.Http.HttpClient();
+            string token = _configManager.GetAccessToken();
+            httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            
+            try
+            {
+                var response = await httpClient.GetAsync("https://www.strava.com/api/v3/athlete");
+                _rateLimitMonitor.UpdateLimitsFromHeaders(response.Headers);
+                
+                if (_rateLimitMonitor.IsRateLimitExceeded())
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"  Upload rejected - Rate limit has been exceeded");
+                    Console.ResetColor();
+                    throw new InvalidOperationException("Rate limit exceeded");
+                }
+            }
+            catch (System.Net.Http.HttpRequestException)
+            {
+                // Continue with normal error handling if we can't check rate limits
+            }
+        }
+
         if (uploadStatus.CurrentStatus == CurrentUploadStatus.Error)
         {
             string errorMsg = !string.IsNullOrEmpty(uploadStatus.Error) 
@@ -298,6 +358,16 @@ public class StravaFileUploader
                 Console.WriteLine($"  Treating as success");
                 Console.ResetColor();
                 return true;
+            }
+            
+            // Check for empty file error
+            if (errorMsg.Contains("file is empty", StringComparison.OrdinalIgnoreCase) ||
+                errorMsg.Contains("Uploading-Empty-Files", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"  File rejected: {errorMsg}");
+                Console.ResetColor();
+                throw new InvalidOperationException($"The file is empty");
             }
             
             Console.ForegroundColor = ConsoleColor.Red;
@@ -364,7 +434,7 @@ public class StravaFileUploader
 
         for (int check = 1; check <= MaxStatusCheckAttempts; check++)
         {
-            await Task.Delay(StatusCheckIntervalSeconds * 1000);
+            await Task.Delay(StatusCheckIntervalSeconds * 3000);
 
             try
             {
@@ -418,6 +488,16 @@ public class StravaFileUploader
                             Console.WriteLine($"  Duplicate detected: {errorMsg}");
                             Console.ResetColor();
                             return true;
+                        }
+                        
+                        // Check for empty file error
+                        if (errorMsg.Contains("file is empty", StringComparison.OrdinalIgnoreCase) ||
+                            errorMsg.Contains("Uploading-Empty-Files", StringComparison.OrdinalIgnoreCase))
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine($"  File rejected: {errorMsg}");
+                            Console.ResetColor();
+                            throw new InvalidOperationException($"The file is empty");
                         }
                         
                         throw new InvalidOperationException($"Processing error: {errorMsg}");
@@ -475,6 +555,13 @@ public class StravaFileUploader
             }
             catch (Exception ex)
             {
+                // Re-throw empty file errors so they can be handled by the retry logic
+                if (ex.Message.Contains("file is empty", StringComparison.OrdinalIgnoreCase) ||
+                    ex.Message.Contains("Uploading-Empty-Files", StringComparison.OrdinalIgnoreCase))
+                {
+                    throw;
+                }
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"  Status check error: {ex.Message}");
                 Console.ResetColor();
@@ -498,7 +585,7 @@ public class StravaFileUploader
         return true;
     }
 
-    private void PrintSummary(int successCount, int failureCount, int skippedCount)
+    private void PrintSummary(int successCount, int failureCount, int skippedCount, int emptyFileCount)
     {
         Console.WriteLine("=== Upload Summary ===");
         Console.ForegroundColor = ConsoleColor.Green;
@@ -509,6 +596,13 @@ public class StravaFileUploader
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"Skipped: {skippedCount}");
+            Console.ResetColor();
+        }
+        
+        if (emptyFileCount > 0)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"Empty Files: {emptyFileCount}");
             Console.ResetColor();
         }
         

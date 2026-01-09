@@ -56,6 +56,43 @@ public class RateLimitMonitor
         }
     }
 
+    public bool IsRateLimitExceeded()
+    {
+        if (_fifteenMinLimit == 0 || _dailyLimit == 0)
+            return false;
+            
+        return _fifteenMinUsage >= _fifteenMinLimit || _dailyUsage >= _dailyLimit;
+    }
+
+    public void DisplayRateLimitExceededMessage()
+    {
+        Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("???????????????????????????????????????????????????????");
+        Console.WriteLine("   RATE LIMIT EXCEEDED");
+        Console.WriteLine("???????????????????????????????????????????????????????");
+        Console.ResetColor();
+        Console.WriteLine();
+        Console.WriteLine("Strava API rate limits have been reached:");
+        Console.WriteLine($"  15-minute limit: {_fifteenMinUsage}/{_fifteenMinLimit}");
+        Console.WriteLine($"  Daily limit: {_dailyUsage}/{_dailyLimit}");
+        Console.WriteLine();
+        Console.WriteLine("The application will now exit to prevent further errors.");
+        Console.WriteLine();
+        
+        if (_fifteenMinUsage >= _fifteenMinLimit)
+        {
+            Console.WriteLine("Please wait at least 15 minutes before running again.");
+        }
+        
+        if (_dailyUsage >= _dailyLimit)
+        {
+            Console.WriteLine("Daily limit reached. Please try again tomorrow.");
+        }
+        
+        Console.WriteLine();
+    }
+
     public bool IsNearLimit()
     {
         if (_fifteenMinLimit == 0 || _dailyLimit == 0)
